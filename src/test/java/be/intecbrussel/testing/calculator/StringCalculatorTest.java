@@ -17,7 +17,7 @@ class StringCalculatorTest {
     @Test
     void emptyShouldReturnZero() {
         StringCalculator calculator = new StringCalculator();
-        Assertions.assertEquals(1,calculator.add(""));
+        Assertions.assertEquals(0,calculator.add(""));
     }
     @Test
     void oneAndTwoShouldReturnThree() {
