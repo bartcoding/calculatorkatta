@@ -7,9 +7,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StringCalculatorTest {
 
+
+    //the tests have been written the implementation has not been written
     @Test
-    void add() {
-        Assertions.assertEquals(1,"1");
+    void oneShouldReturnOne() {
+        StringCalculator calculator = new StringCalculator();
+        Assertions.assertEquals(1,calculator.Add("1"));
+    }
+    @Test
+    void emptyShouldReturnZero() {
+        StringCalculator calculator = new StringCalculator();
+        Assertions.assertEquals(1,calculator.Add(""));
+    }
+    @Test
+    void oneAndTwoShouldReturnThree() {
+        StringCalculator calculator = new StringCalculator();
+        Assertions.assertEquals(3,calculator.Add("1,2"));
     }
 
 }
