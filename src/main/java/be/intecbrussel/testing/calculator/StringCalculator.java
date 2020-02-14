@@ -2,7 +2,7 @@ package be.intecbrussel.testing.calculator;
 
 public class StringCalculator {
 
-    public int Add(String numbers){
+    public int add(String numbers){
 
 
         return 0;

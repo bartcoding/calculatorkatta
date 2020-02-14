@@ -12,17 +12,17 @@ class StringCalculatorTest {
     @Test
     void oneShouldReturnOne() {
         StringCalculator calculator = new StringCalculator();
-        Assertions.assertEquals(1,calculator.Add("1"));
+        Assertions.assertEquals(1,calculator.add("1"));
     }
     @Test
     void emptyShouldReturnZero() {
         StringCalculator calculator = new StringCalculator();
-        Assertions.assertEquals(1,calculator.Add(""));
+        Assertions.assertEquals(1,calculator.add(""));
     }
     @Test
     void oneAndTwoShouldReturnThree() {
         StringCalculator calculator = new StringCalculator();
-        Assertions.assertEquals(3,calculator.Add("1,2"));
+        Assertions.assertEquals(3,calculator.add("1,2"));
     }
 
 }
