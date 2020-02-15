@@ -60,12 +60,16 @@ public class StringCalculator {
         return stringOfNumbers.split(delimiterCharacters);
     }
 
+
+    //everything between \Q and \E gets escaped, thus we can use special characters like * as deliminators
     private String getDelimiterCharachters(String stringOfNumbers) {
         if (stringOfNumbers.charAt(2) == '[') {
             int endIndex = stringOfNumbers.indexOf(']');
-            return "[,\n]|" + stringOfNumbers.substring(3, endIndex);
+            return "[,\n]|\\Q" + stringOfNumbers.substring(3, endIndex)+"\\E";
         }
-        return "[" + stringOfNumbers.charAt(2) + ",\n]";
+        else {
+            return "[\\Q" + stringOfNumbers.charAt(2) + "\\E,\n]";
+        }
     }
 
 
