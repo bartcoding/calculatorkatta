@@ -3,6 +3,8 @@ package be.intecbrussel.testing.calculator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -12,9 +14,25 @@ public class StringCalculator {
         if (numbers.equals("")) {
             return 0;
         }
-        return IntStream.of(convertStringOfNumbersToIntArray(numbers))
-                .filter(this::numberIsPositive)
+        int[] numberArray =convertStringOfNumbersToIntArray(numbers);
+        checkForNegatives(numberArray);
+        return IntStream.of(numberArray)
                 .sum();
+    }
+
+    private void checkForNegatives(int[] numberArray) {
+        List<Integer> negativeNumbers = new ArrayList<>();
+        for (int number :numberArray){
+            if (number<0){
+                negativeNumbers.add(number);
+            }
+        }
+        if (negativeNumbers.size()>0){
+            String negativeNumbersAsStringWithCommas = negativeNumbers.stream()
+                                                                        .map(Objects::toString)
+                                                                        .collect(Collectors.joining(","));
+            throw new RuntimeException("negatives not allowed : " + negativeNumbersAsStringWithCommas);
+        }
     }
 
     private boolean numberIsPositive(int number) throws RuntimeException {
