@@ -21,7 +21,13 @@ public class StringCalculator {
     }
 
     private String[] extractNumbersFromString(String stringOfNumbers) {
-        return stringOfNumbers.split("[,\n]");
+        StringBuilder delimiterCharacters = new StringBuilder("[,\n]");
+        if(stringOfNumbers.startsWith("//")){
+            delimiterCharacters = delimiterCharacters.insert(1,stringOfNumbers.charAt(2));
+            stringOfNumbers = stringOfNumbers.substring(4);
+        }
+
+        return stringOfNumbers.split(delimiterCharacters.toString());
     }
 
     private int[] convertStringOfNumberArrayToIntArray(String[] stringOfNumbers) {
