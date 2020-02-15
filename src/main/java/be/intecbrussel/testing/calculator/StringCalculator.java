@@ -19,6 +19,7 @@ public class StringCalculator {
         int[] numberArray =convertStringOfNumbersToIntArray(numbers);
         checkForNegatives(numberArray);
         return IntStream.of(numberArray)
+                .filter(number->number<1000)
                 .sum();
     }
     public int getCalledCount(){
