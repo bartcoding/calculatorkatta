@@ -9,7 +9,10 @@ import java.util.stream.Stream;
 
 public class StringCalculator {
 
+    private int count =0;
+
     public int add(String numbers){
+        count++;
         if (numbers.equals("")) {
             return 0;
         }
@@ -19,7 +22,7 @@ public class StringCalculator {
                 .sum();
     }
     public int getCalledCount(){
-        return 0;
+        return count;
     }
 
     private void checkForNegatives(int[] numberArray) {
