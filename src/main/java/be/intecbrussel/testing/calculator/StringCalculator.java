@@ -1,7 +1,6 @@
 package be.intecbrussel.testing.calculator;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -33,13 +32,6 @@ public class StringCalculator {
                                                                         .collect(Collectors.joining(","));
             throw new RuntimeException("negatives not allowed : " + negativeNumbersAsStringWithCommas);
         }
-    }
-
-    private boolean numberIsPositive(int number) throws RuntimeException {
-        if(number<0){
-            throw new RuntimeException("negatives not allowed : " + number);
-        }
-        return true;
     }
 
     private int[] convertStringOfNumbersToIntArray(String stringOfNumbers) {
