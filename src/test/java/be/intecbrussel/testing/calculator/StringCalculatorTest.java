@@ -81,6 +81,7 @@ class StringCalculatorTest {
     @Test
     void multicharacterDelimiters(){
         StringCalculator calculator = new StringCalculator();
-        Assertions.assertEquals(6,calculator.add("//[aaa]\n1aaa2aaa3"));
+        Assertions.assertEquals(6,calculator.add("//[***]\n1***2***3"));
     }
+
 }
