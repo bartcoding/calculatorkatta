@@ -8,11 +8,20 @@ import java.util.stream.Stream;
 
 public class StringCalculator {
 
-    public int add(String numbers) {
+    public int add(String numbers){
         if (numbers.equals("")) {
             return 0;
         }
-        return IntStream.of(convertStringOfNumbersToIntArray(numbers)).sum();
+        return IntStream.of(convertStringOfNumbersToIntArray(numbers))
+                .filter(this::numberIsPositive)
+                .sum();
+    }
+
+    private boolean numberIsPositive(int number) throws RuntimeException {
+        if(number<0){
+            throw new RuntimeException("negatives not allowed : " + number);
+        }
+        return true;
     }
 
     private int[] convertStringOfNumbersToIntArray(String stringOfNumbers) {
