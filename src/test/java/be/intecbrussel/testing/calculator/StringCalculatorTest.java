@@ -24,5 +24,10 @@ class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         Assertions.assertEquals(3,calculator.add("1,2"));
     }
+    @Test
+    void useNewLineAsSeperatorBetweenNumbers(){
+        StringCalculator calculator = new StringCalculator();
+        Assertions.assertEquals(6,calculator.add("1\n2,3"));
+    }
 
 }
