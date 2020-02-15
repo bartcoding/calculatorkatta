@@ -21,14 +21,18 @@ public class StringCalculator {
     }
 
     private String[] extractNumbersFromString(String stringOfNumbers) {
-        StringBuilder delimiterCharacters = new StringBuilder("[,\n]");
-        if(stringOfNumbers.startsWith("//")){
-            delimiterCharacters = delimiterCharacters.insert(1,stringOfNumbers.charAt(2));
+        String delimiterCharacters = "[,\n]";
+        if (stringOfNumbers.startsWith("//")) {
+            delimiterCharacters = getDelimiterCharachters(stringOfNumbers);
             stringOfNumbers = stringOfNumbers.substring(4);
         }
-
         return stringOfNumbers.split(delimiterCharacters.toString());
     }
+
+    private String getDelimiterCharachters(String stringOfNumbers) {
+        return "["+stringOfNumbers.charAt(2)+",\n]";
+    }
+
 
     private int[] convertStringOfNumberArrayToIntArray(String[] stringOfNumbers) {
         return Stream.of(stringOfNumbers).mapToInt(Integer::parseInt)
