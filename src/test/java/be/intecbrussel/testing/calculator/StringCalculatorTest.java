@@ -40,4 +40,10 @@ class StringCalculatorTest {
         Exception exception = Assertions.assertThrows(RuntimeException.class,()->calculator.add("1,2,-3"));
         Assertions.assertEquals("negatives not allowed : -3",exception.getMessage());
     }
+    @Test
+    void multipleNegativeNumbersThrowsException(){
+        StringCalculator calculator = new StringCalculator();
+        Exception exception = Assertions.assertThrows(RuntimeException.class,()->calculator.add("1,-2,-3"));
+        Assertions.assertEquals("negatives not allowed : -2,-3",exception.getMessage());
+    }
 }
