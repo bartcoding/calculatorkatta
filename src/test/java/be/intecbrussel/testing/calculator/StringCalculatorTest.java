@@ -78,4 +78,9 @@ class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         Assertions.assertEquals(2,calculator.add("2,1000"));
     }
+    @Test
+    void multicharacterDelimiters(){
+        StringCalculator calculator = new StringCalculator();
+        Assertions.assertEquals(6,calculator.add("//[aaa]\n1aaa2aaa3"));
+    }
 }
