@@ -18,6 +18,9 @@ public class StringCalculator {
         return IntStream.of(numberArray)
                 .sum();
     }
+    public int getCalledCount(){
+        return 0;
+    }
 
     private void checkForNegatives(int[] numberArray) {
         List<Integer> negativeNumbers = new ArrayList<>();

@@ -46,4 +46,31 @@ class StringCalculatorTest {
         Exception exception = Assertions.assertThrows(RuntimeException.class,()->calculator.add("1,-2,-3"));
         Assertions.assertEquals("negatives not allowed : -2,-3",exception.getMessage());
     }
+    @Test
+    void getCalledCount0TimesCalled(){
+        StringCalculator calculator = new StringCalculator();
+        Assertions.assertEquals(0,calculator.getCalledCount());
+    }
+    @Test
+    void getCalledCount2TimesCalled(){
+        StringCalculator calculator = new StringCalculator();
+        calculator.add("");
+        calculator.add("");
+        Assertions.assertEquals(2,calculator.getCalledCount());
+    }
+    @Test
+    void getCalledCount10TimesCalled(){
+        StringCalculator calculator = new StringCalculator();
+        calculator.add("");
+        calculator.add("");
+        calculator.add("");
+        calculator.add("");
+        calculator.add("");
+        calculator.add("");
+        calculator.add("");
+        calculator.add("");
+        calculator.add("");
+        calculator.add("");
+        Assertions.assertEquals(10,calculator.getCalledCount());
+    }
 }
